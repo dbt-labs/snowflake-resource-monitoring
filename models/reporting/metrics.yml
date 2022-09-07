@@ -1,0 +1,34 @@
+version: 2
+
+metrics:
+  - name: credits_used
+    label: Credit Consumption
+    model: ref('incr_query_logs')
+    description: "The number of paid customers using the product"
+
+    type: sum
+    sql: credits_used # superfluous here, but shown as an example
+
+    timestamp: dt
+    time_grains: [day, week, month, year]
+
+    dimensions:
+      # specific to snowflake:
+      - user_name
+      - database_name
+      - warehouse_name
+      # as implemented in dbt projects:
+      - dbt_run_id
+      - dbt_job_id
+      - dbt_environment_name
+      - dbt_materialization_type
+      - dbt_model_name
+      - dbt_project_name
+    
+    filters:
+      - field: dbt_project_name
+        operator: 'is'
+        value: 'not null'
+
+    meta:
+      team: Admins

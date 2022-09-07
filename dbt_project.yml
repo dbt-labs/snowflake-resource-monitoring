@@ -29,17 +29,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 vars:
-  lookback_days: 30
-  user_credit_limit: 10
-  model_max_credits: 1
-  model_max_run_time: 300
-  warehouse_credit_limits: 
-    default: 100
-    transforming: 50
-  credit_limits_by_environment:
-    dev: 100
-    qa: 100
-    prod: 100
+  dbt_metrics_calendar_model: dbt_metrics_default_calendar
+  model_credit_limit: 1
+  incremental_full_refresh_per_period_limit: 1
 
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files

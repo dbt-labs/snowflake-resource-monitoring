@@ -12,5 +12,5 @@
 select start_time::date as dt, * 
 from {{ ref('stg_query_logs') }}
 {% if is_incremental() %}
-where start_time::date > (select max(start_time::date from {{this}} )
+where start_time::date > (select max(dt) from {{this}} )
 {% endif %}
