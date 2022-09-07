@@ -9,7 +9,7 @@ analyzing workloads according to database, schema, user and warehouse. However, 
 
 ### Setup
 
-Add the macro code from `config/set_query_tag.sql` to dbt Snowflake projects you want to monitor. This version of the package uses some dbt Cloud specific environment variables:
+Add the macro code from `config/set_query_tag.sql` to dbt Snowflake projects you want to monitor. Doing this will override the default set_query_tag() macro that ships with dbt. This version of the package uses some dbt Cloud specific environment variables:
 
 - DBT_CLOUD_JOB_ID
 - DBT_CLOUD_RUN_ID
