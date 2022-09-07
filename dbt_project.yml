@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'snowflake_cost_reporting'
 version: '1.0.0'
 config-version: 2
 
@@ -28,11 +28,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
+vars:
+  dbt_metrics_calendar_model: dbt_metrics_default_calendar
+  model_credit_limit: 1
+  incremental_full_refresh_per_period_limit: 1
+
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      materialized: view
+  snowflake_cost_reporting:
+    cost_reporting:
+      reporting:
+        materialized: view
+        
+tests:
+  snowflake_cost_reporting:
+    +severity: error
