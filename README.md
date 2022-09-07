@@ -18,5 +18,6 @@ Add the macro code from `config/set_query_tag.sql` to dbt Snowflake projects you
 ### Potential Future Directions: 
 - Make this approach generic across Data Warehouses by logging the models and test runs in an `on-run-end` hook + macro.
 - Build additional reporting and pre-canned alerts
-- Implement anomaly detection on usage reporting time series (dbt Python models)
-- 
+- Build time series anomaly detection on usage data with dbt + Python models 
+- Semantic layer integration with partners for pre-canned monitoring dashboards 
+- Create similar visuals in Administrative reporting within dbt Cloud? 
