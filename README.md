@@ -1,4 +1,4 @@
-Welcom to the Snowflake Resource Monitoring Project!
+Welcome to the Snowflake Resource Monitoring Project!
 
 NOTE: This is Snowflake-only at present (with a thought on how to extend to other warehouses :) ) 
 
